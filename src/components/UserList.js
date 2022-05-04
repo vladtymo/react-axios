@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../contexts/user.context';
 
 export default function UserList() {
 
@@ -10,6 +11,11 @@ export default function UserList() {
     //     { id: 3, name: "aerh" },
     // ];
 
+    useEffect(() => {
+        loadUsers();
+    }, [])
+
+    const { username } = useContext(UserContext);
 
     const loadUsers = async () => {
         const query = "https://jsonplaceholder.typicode.com/users";
@@ -39,6 +45,7 @@ export default function UserList() {
     return (
         <>
             <h2>User List</h2>
+            <p>Test User: {username}</p>
             <button onClick={loadUsers}>Load Users</button>
             <button onClick={createPost}>Create Post</button>
             <ul>

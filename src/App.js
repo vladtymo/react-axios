@@ -1,22 +1,18 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import { UserProvider } from './contexts/user.context';
 
 function App() {
   return (
-    <div className="App">
-      <header>
-        <div>Logo</div>
-        <nav>
-          <Link to="/home" className="menu-item">Home</Link>
-          <Link to="/users" className="menu-item">Users</Link>
-          <Link to="/about" className="menu-item">About</Link>
-        </nav>
-      </header>
+    <UserProvider>
+      <div className="App">
+        <Navbar />
+        <Outlet />
 
-      <Outlet />
-
-      {/* <footer>Copyright 2022</footer> */}
-    </div>
+        {/* <footer>Copyright 2022</footer> */}
+      </div>
+    </UserProvider>
   );
 }
 
