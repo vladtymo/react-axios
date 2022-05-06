@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/user.context";
 
 export default function TestUser() {
 
-    const { setUsername } = useContext(UserContext);
+    const { setUsername, clearUsername } = useContext(UserContext);
 
     const usernameRef = createRef();
 
@@ -12,6 +12,9 @@ export default function TestUser() {
 
         //console.log(usernameRef.current.value);
         setUsername(usernameRef.current.value);
+    }
+    const clearHandler = () => {
+        clearUsername();
     }
 
     return (
@@ -26,6 +29,7 @@ export default function TestUser() {
                 </label>
                 <button type="submit">Create User</button>
             </form>
+            <button type="button" onClick={clearHandler}>Clear Username</button>
         </>
     )
 }
