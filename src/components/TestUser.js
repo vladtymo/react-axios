@@ -1,20 +1,25 @@
-import { createRef, useContext } from "react";
-import { UserContext } from "../contexts/user.context";
+import { createRef } from "react";
+
+//import { UserContext } from "../contexts/user.context";
+import { useDispatch } from "react-redux";
+import { clearUsername, setUsername } from "../store/user/user.actions";
 
 export default function TestUser() {
 
-    const { setUsername, clearUsername } = useContext(UserContext);
+    //const { setUsername, clearUsername } = useContext(UserContext);
+    const dispatch = useDispatch();
 
     const usernameRef = createRef();
 
     const submitHandler = (event) => {
         event.preventDefault();
 
-        //console.log(usernameRef.current.value);
-        setUsername(usernameRef.current.value);
+        //setUsername(usernameRef.current.value);
+        dispatch(setUsername(usernameRef.current.value));
     }
     const clearHandler = () => {
-        clearUsername();
+        //clearUsername();
+        dispatch(clearUsername());
     }
 
     return (

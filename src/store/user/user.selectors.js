@@ -1,0 +1,1 @@
+export const selectUsername = (store) => store.user.username;

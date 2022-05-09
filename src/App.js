@@ -5,14 +5,14 @@ import { UserProvider } from './contexts/user.context';
 
 function App() {
   return (
-    <UserProvider>
-      <div className="App">
-        <Navbar />
-        <Outlet />
+    // <UserProvider>
+    <div className="App">
+      <Navbar />
+      <Outlet />
 
-        {/* <footer>Copyright 2022</footer> */}
-      </div>
-    </UserProvider>
+      {/* <footer>Copyright 2022</footer> */}
+    </div>
+    // </UserProvider>
   );
 }
 

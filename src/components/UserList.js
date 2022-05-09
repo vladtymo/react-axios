@@ -1,6 +1,9 @@
 import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
-import { UserContext } from '../contexts/user.context';
+import { useEffect, useState } from 'react';
+
+//import { UserContext } from '../contexts/user.context';
+import { useSelector } from 'react-redux';
+import { selectUsername } from '../store/user/user.selectors';
 
 export default function UserList() {
 
@@ -15,7 +18,8 @@ export default function UserList() {
         loadUsers();
     }, [])
 
-    const { username } = useContext(UserContext);
+    //const { username } = useContext(UserContext);
+    const username = useSelector(selectUsername);
 
     const loadUsers = async () => {
         const query = "https://jsonplaceholder.typicode.com/users";

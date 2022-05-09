@@ -1,10 +1,14 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../contexts/user.context";
+//import { useContext } from "react";
+//import { UserContext } from "../contexts/user.context";
+
+import { useSelector } from "react-redux";
+import { selectUsername } from "../store/user/user.selectors";
 
 export default function Navbar() {
 
-    const { username } = useContext(UserContext);
+    //const { username } = useContext(UserContext);
+    const username = useSelector(selectUsername);
 
     return (
         <header>
