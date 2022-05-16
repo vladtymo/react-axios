@@ -12,7 +12,7 @@ export default function Navbar() {
 
     return (
         <header>
-            <div>Logo</div>
+            <div>My Logo</div>
             <nav>
                 <Link to="/home" className="menu-item">Home</Link>
                 <Link to="/users" className="menu-item">Users</Link>
